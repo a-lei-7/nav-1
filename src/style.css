@@ -1,0 +1,224 @@
+/* css reset */
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* style */
+body {
+  background-image:url(/images/bgi.jpg) ;
+  background-size: cover;
+  
+}
+@media(max-width:500px){
+  
+  body{
+  background-image:url(/images/bgi.jpg) ;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+  height: 100vh;
+  margin: 0px;
+  padding: 1px;
+  vertical-align: middle;
+}
+}
+.globalHeader {
+  margin: 20px;
+}
+@media(min-width:500px){
+  .globalHeader{
+    margin: 120px 0 60px 0;
+  }
+  }
+.searchForm {
+  display: flex;
+  justify-content: space-between;
+}
+@media(min-width: 500px){ /* 如果页面像素大于 500px 适配以下 */
+  .searchForm {
+    max-width: 617px;
+    margin-left: auto; /* 只有当宽度固定，或者最大宽度的时候才可以使用 */
+    margin-right: auto;
+  }
+  
+}
+
+.searchForm > input {
+  width: 100%;
+  margin-right: 10px;
+  padding-left: 20px;
+  height: 50px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  border-radius:22px;
+  outline:none;
+}
+@media(max-width:500px){
+  .searchForm > input{
+    height: 40px;
+
+  }
+  
+}
+input::placeholder{
+  padding-left: 20px;
+  height: 50px;
+  font-size: 18px;
+  
+}
+
+.searchForm > button {
+  white-space: nowrap;
+  /* 让 '搜索' 不换行展示 */
+  padding: 0 30px;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  margin-left: -110px;
+  background-color: ;
+  color: #ccc;
+  font-size: 16px;
+}
+
+.globalMain {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media(max-width:500px){
+  .globalMain{
+    max-width: 275px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .searchForm > button{
+    padding: 0 20px;
+  }
+  
+}
+.siteList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+}
+
+@media(min-width:500px){
+  .siteList{
+    margin: 20px;
+    margin-left: 0;
+    margin-right: -25px;
+    justify-content: unset;
+  }
+}
+@media(min-width:500px){
+  .siteList>li{
+    margin-right: 25px;
+  }
+}
+.siteList > li {
+  margin-bottom: 25px;
+}
+
+
+
+.siteList .site {
+  width: 125px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  position: relative;
+  padding: 20px 0;
+  color: #333;
+  cursor: pointer;
+}
+@media(max-width:500px){
+  .siteList .site{
+  }
+}
+.siteList .site >.close{
+position:absolute;
+right:7px;
+top:4px;
+color: #333;
+visibility: hidden;
+cursor: default; /*鼠标移动到这里，就从小手变为普通鼠标*/
+}
+
+.siteList .site:hover >.close{
+  visibility: visible;
+  transition: visibility .1s ease-out .3s;
+}
+.siteList .site > .logo {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
+  text-transform: uppercase; /* 全大写*/
+}
+
+.siteList.site > .link {
+  font-size: 14px;
+  margin-top: 4px;
+  color: #222;
+}
+.siteList .last{
+  
+}
+.siteList .addButton {
+  width: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+  background-color: #fff;
+  height: 125px;
+  color: #333;
+}
+
+.siteList .addButton .text {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.siteList .addButton .icon {
+  width: 64px;
+  height: 64px;
+}
+
+.siteList .addButton .icon-wrapper {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
