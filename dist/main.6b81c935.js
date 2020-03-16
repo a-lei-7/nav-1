@@ -134,19 +134,19 @@ var hashMap = xObject || [{
 }];
 
 var simplifyUrl = function simplifyUrl(url) {
-  return url.replace("https://", "").replace("http://", "").replace("www.", "").replace(/\/.*/, ''); // 删除以 ’/‘ 开头的内容
+  return url.replace("https://", "").replace("http://", "").replace("www.", "").replace(/\/.*/, ""); // 删除以 ’/‘ 开头的内容
 };
 
 var render = function render() {
   $siteList.find("li:not(.last)").remove();
   hashMap.forEach(function (node, index) {
     console.log(index);
-    var $li = $("<li>   \n    <div class=\"site\" id=\"touchArea\">\n      <div class=\"logo\">".concat(node.logo, "</div>\n      <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n      <div class='close'>\n        <svg class=\"icon\" >\n          <use xlink:href=\"#icon-close\"></use>\n        </svg>\n      </div>\n    </div>    \n  </li>")).insertBefore($lastLi);
-    $li.on('click', function () {
+    var $li = $("<li>   \n    <div class=\"site\" id=\"touchArea\">\n      <div class=\"logo\">".concat(node.logo, "</div>\n      <div class=\"link\">").concat(simplifyUrl(node.url), "</div>\n      <button class='edit-menu'>\n        <svg class=\"icon\" >\n          <use xlink:href=\"#icon-shenglve\"></use>\n        </svg>\n      </button>\n    </div>    \n  </li>")).insertBefore($lastLi);
+    $li.on("click", function () {
       // 点击 li ，跳转到 url
       window.open(node.url, "_self");
     });
-    $li.on('click', '.close', function (e) {
+    $li.on("click", ".edit-menu", function (e) {
       // 点击 .close 区域，阻止冒泡（窗口跳转）
       e.stopPropagation(); //阻止冒泡
 
@@ -198,12 +198,12 @@ $(function () {
 
   if (timeOutEvent >= 500) {
     $(".siteList .site .close").css({
-      "visibility": "visible"
+      visibility: "visible"
     });
   }
 }); //键盘监听
 
-$(document).on('keypress', function (e) {
+$(document).on("keypress", function (e) {
   var key = e.key; // 即 const key = e.key
 
   for (var i = 0; i < hashMap.length; i++) {
@@ -213,4 +213,4 @@ $(document).on('keypress', function (e) {
   }
 });
 },{}]},{},["epB2"], null)
-//# sourceMappingURL=/main.c85c523b.js.map
+//# sourceMappingURL=main.6b81c935.js.map

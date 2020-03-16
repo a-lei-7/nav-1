@@ -36,12 +36,12 @@ img {
 
 /* style */
 body {
-  background-image: url(/bgi.23a338bf.jpg);
+  background-image: url(bgi.8bcbe57b.jpg);
   background-size: cover;
 }
 @media (max-width: 500px) {
   body {
-    background-image: url(/bgi.23a338bf.jpg);
+    background-image: url(bgi.8bcbe57b.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -246,4 +246,4 @@ input::placeholder {
 }
 
 
-/*# sourceMappingURL=/style.e308ff8e.css.map */
+/*# sourceMappingURL=style.40b4162f.css.map */
