@@ -8,37 +8,39 @@ const hashMap = xObject || [
   { logo: "B", url: "https://www.bilibili.com" }
 ];
 
-const simplifyUrl = (url) => {
+const simplifyUrl = url => {
   return url
     .replace("https://", "")
     .replace("http://", "")
     .replace("www.", "")
-    .replace(/\/.*/,''); // 删除以 ’/‘ 开头的内容
+    .replace(/\/.*/, ""); // 删除以 ’/‘ 开头的内容
 };
 
 const render = () => {
   $siteList.find("li:not(.last)").remove();
-  hashMap.forEach((node,index) => {
-    console.log(index)
+  hashMap.forEach((node, index) => {
+    console.log(index);
     const $li = $(`<li>   
     <div class="site" id="touchArea">
       <div class="logo">${node.logo}</div>
       <div class="link">${simplifyUrl(node.url)}</div>
-      <div class='close'>
+      <button class='edit-menu'>
         <svg class="icon" >
-          <use xlink:href="#icon-close"></use>
+          <use xlink:href="#icon-shenglve"></use>
         </svg>
-      </div>
+      </button>
     </div>    
   </li>`).insertBefore($lastLi);
-  $li.on('click',()=>{ // 点击 li ，跳转到 url
-    window.open(node.url,"_self")
-  })
-  $li.on('click','.close',(e)=>{  // 点击 .close 区域，阻止冒泡（窗口跳转）
-    e.stopPropagation() //阻止冒泡
-    hashMap.splice(index,1) //在 hashMap 内删掉 此条数据
-    render() //然后重新渲染页面
-  })
+    $li.on("click", () => {
+      // 点击 li ，跳转到 url
+      window.open(node.url, "_self");
+    });
+    $li.on("click", ".edit-menu", e => {
+      // 点击 .close 区域，阻止冒泡（窗口跳转）
+      e.stopPropagation(); //阻止冒泡
+      hashMap.splice(index, 1); //在 hashMap 内删掉 此条数据
+      render(); //然后重新渲染页面
+    });
   });
 };
 render();
@@ -48,7 +50,7 @@ $(".addButton").on("click", () => {
     url = "https://" + url;
   }
   console.log(url);
-  hashMap.push({ logo: simplifyUrl(url)[0].toUpperCase(),  url: url });
+  hashMap.push({ logo: simplifyUrl(url)[0].toUpperCase(), url: url });
 
   render();
 });
@@ -58,34 +60,33 @@ window.onbeforeunload = () => {
   window.localStorage.setItem("x", string);
 };
 
- //监听屏幕长按，显示删除按钮
-let timeOutEvent = 0
-$(function(){
+//监听屏幕长按，显示删除按钮
+let timeOutEvent = 0;
+$(function() {
   $("#touchArea").on({
-    touchstart:function(e){
-      timeOutEvent = setTimeout(longPress(),500)
+    touchstart: function(e) {
+      timeOutEvent = setTimeout(longPress(), 500);
       e.preventDefault();
     },
-    touchmove: function(){
-      clearTimeout(timeOutEvent)
+    touchmove: function() {
+      clearTimeout(timeOutEvent);
       timeOutEvent = 0;
     },
-    touchend:function(){
-      clearTimeout(timeOutEvent)
+    touchend: function() {
+      clearTimeout(timeOutEvent);
     }
-  })
-  if(timeOutEvent>=500){
-    $(".siteList .site .close").css({"visibility":"visible"})
+  });
+  if (timeOutEvent >= 500) {
+    $(".siteList .site .close").css({ visibility: "visible" });
   }
-})
-
+});
 
 //键盘监听
-$(document).on('keypress',(e)=>{
-  const {key} = e  // 即 const key = e.key
-  for(let i=0;i<hashMap.length;i++){
-    if(hashMap[i].logo.toLowerCase()=== key){
-      window.open(hashMap[i].url,"_self")
+$(document).on("keypress", e => {
+  const { key } = e; // 即 const key = e.key
+  for (let i = 0; i < hashMap.length; i++) {
+    if (hashMap[i].logo.toLowerCase() === key) {
+      window.open(hashMap[i].url, "_self");
     }
   }
-})
+});

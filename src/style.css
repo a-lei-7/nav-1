@@ -12,6 +12,12 @@
   margin: 0;
   padding: 0;
 }
+button {
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  outline: none;
+}
 
 ul,
 ol {
@@ -30,42 +36,40 @@ img {
 
 /* style */
 body {
-  background-image:url(/images/bgi.jpg) ;
+  background-image: url(/images/bgi.jpg);
   background-size: cover;
-  
 }
-@media(max-width:500px){
-  
-  body{
-  background-image:url(/images/bgi.jpg) ;
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:cover;
-  height: 100vh;
-  margin: 0px;
-  padding: 1px;
-  vertical-align: middle;
-}
+@media (max-width: 500px) {
+  body {
+    background-image: url(/images/bgi.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    margin: 0px;
+    padding: 1px;
+    vertical-align: middle;
+  }
 }
 .globalHeader {
   margin: 20px;
 }
-@media(min-width:500px){
-  .globalHeader{
+@media (min-width: 500px) {
+  .globalHeader {
     margin: 120px 0 60px 0;
   }
-  }
+}
 .searchForm {
   display: flex;
   justify-content: space-between;
 }
-@media(min-width: 500px){ /* 如果页面像素大于 500px 适配以下 */
+@media (min-width: 500px) {
+  /* 如果页面像素大于 500px 适配以下 */
   .searchForm {
     max-width: 617px;
     margin-left: auto; /* 只有当宽度固定，或者最大宽度的时候才可以使用 */
     margin-right: auto;
   }
-  
 }
 
 .searchForm > input {
@@ -75,21 +79,18 @@ body {
   height: 50px;
   padding: 0 10px;
   border: 1px solid #ddd;
-  border-radius:22px;
-  outline:none;
+  border-radius: 22px;
+  outline: none;
 }
-@media(max-width:500px){
-  .searchForm > input{
+@media (max-width: 500px) {
+  .searchForm > input {
     height: 40px;
-
   }
-  
 }
-input::placeholder{
+input::placeholder {
   padding-left: 20px;
   height: 50px;
   font-size: 18px;
-  
 }
 
 .searchForm > button {
@@ -105,46 +106,37 @@ input::placeholder{
 }
 
 .globalMain {
-  max-width: 600px;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }
-@media(max-width:500px){
-  .globalMain{
-    max-width: 275px;
+@media (max-width: 500px) {
+  .globalMain {
+    max-width: 345px;
     margin-left: auto;
     margin-right: auto;
   }
-  .searchForm > button{
+  .searchForm > button {
     padding: 0 20px;
   }
-  
 }
 .siteList {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  
 }
 
-@media(min-width:500px){
-  .siteList{
+@media (min-width: 500px) {
+  .siteList {
     margin: 20px;
     margin-left: 0;
-    margin-right: -25px;
     justify-content: unset;
   }
 }
-@media(min-width:500px){
-  .siteList>li{
-    margin-right: 25px;
-  }
-}
+
 .siteList > li {
   margin-bottom: 25px;
 }
-
-
 
 .siteList .site {
   width: 125px;
@@ -152,46 +144,65 @@ input::placeholder{
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: transparent;
   position: relative;
   padding: 20px 0;
-  color: #333;
+  color: rgb(241, 241, 241);
   cursor: pointer;
 }
-@media(max-width:500px){
-  .siteList .site{
+
+@media (max-width: 500px) {
+  .siteList .site {
+    width: 115px;
+    height: 115px;
+    padding: 13px 0;
   }
 }
-.siteList .site >.close{
-position:absolute;
-right:7px;
-top:4px;
-color: #333;
-visibility: hidden;
-cursor: default; /*鼠标移动到这里，就从小手变为普通鼠标*/
+@media (min-width: 500px) {
+}
+.siteList .site > .edit-menu {
+  position: absolute;
+  right: 7px;
+  top: 4px;
+  height: 20px;
+  width: 20px;
+  font-size: 18px;
+
+  background-color: transparent;
+  visibility: hidden;
+  cursor: default; /*鼠标移动到这里，就从小手变为普通鼠标*/
 }
 
-.siteList .site:hover >.close{
+.siteList .site:hover > .edit-menu {
   visibility: visible;
-  transition: visibility .1s ease-out .3s;
+  transition: visibility 0.1s ease-out 0.3s;
+  color: #fff;
+  font-weight: bolder;
+}
+.siteList :hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }
 .siteList .site > .logo {
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 64px;
+  font-size: 30px;
+  margin-bottom: 14px;
+  color: #333;
   text-transform: uppercase; /* 全大写*/
 }
 
 .siteList.site > .link {
   font-size: 14px;
   margin-top: 4px;
-  color: #222;
+  color: #fff;
 }
-.siteList .last{
-  
+.siteList .last {
 }
 .siteList .addButton {
   width: 125px;
@@ -200,25 +211,36 @@ cursor: default; /*鼠标移动到这里，就从小手变为普通鼠标*/
   align-items: center;
   flex-direction: column;
   padding: 20px 0;
-  background-color: #fff;
   height: 125px;
   color: #333;
+  font-weight: bolder;
 }
-
+@media (max-width: 500px) {
+  .siteList .addButton {
+    width: 115px;
+    height: 115px;
+    padding: 13px 0;
+  }
+}
 .siteList .addButton .text {
   font-size: 14px;
+  color: rgb(241, 241, 241);
+
   margin-top: 4px;
 }
 
 .siteList .addButton .icon {
-  width: 64px;
-  height: 64px;
+  width: 30px;
+  height: 30px;
 }
 
 .siteList .addButton .icon-wrapper {
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
