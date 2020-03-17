@@ -38,6 +38,7 @@ img {
 body {
   background-image: url(bgi.8bcbe57b.jpg);
   background-size: cover;
+  position: relative;
 }
 @media (max-width: 500px) {
   body {
@@ -51,12 +52,21 @@ body {
     vertical-align: middle;
   }
 }
+/* .edit-link {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid red;
+  background-color: #fff;
+  z-index: 10000;
+} */
 .globalHeader {
   margin: 20px;
 }
 @media (min-width: 500px) {
   .globalHeader {
-    margin: 120px 0 60px 0;
+    margin: 200px 0 30px 0;
   }
 }
 .searchForm {
@@ -100,7 +110,6 @@ input::placeholder {
   border: none;
   border-radius: 0 25px 25px 0;
   margin-left: -110px;
-  background-color: ;
   color: #ccc;
   font-size: 16px;
 }
@@ -123,12 +132,10 @@ input::placeholder {
 .siteList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 @media (min-width: 500px) {
   .siteList {
-    margin: 20px;
     margin-left: 0;
     justify-content: unset;
   }
@@ -246,4 +253,4 @@ input::placeholder {
 }
 
 
-/*# sourceMappingURL=style.40b4162f.css.map */
+/*# sourceMappingURL=style.25007a5b.css.map */
